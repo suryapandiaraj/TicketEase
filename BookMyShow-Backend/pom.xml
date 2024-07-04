@@ -8,11 +8,11 @@
 		<version>3.1.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.acciojob</groupId>
-	<artifactId>bookmyShow-project</artifactId>
+	<groupId>com.bookmyshow</groupId>
+	<artifactId>bookmyshow</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bookmyShow-project</name>
-	<description>Demo project for Spring Boot</description>
+	<name>bookmyShow</name>
+	<description>BookMyShow to book theater tickets online.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

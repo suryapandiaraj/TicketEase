@@ -12,7 +12,6 @@ import BookMyShow.Repository.TheaterRepository;
 import BookMyShow.Repository.TicketRepository;
 import BookMyShow.Repository.UserRepository;
 import BookMyShow.RequestDtos.BookTicketRequest;
-import org.aspectj.apache.bcel.classfile.Module;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
