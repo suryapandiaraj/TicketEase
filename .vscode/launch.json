@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-TicketEaseApplication<ticketease>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "TicketEase.TicketEaseApplication",
+      "projectName": "ticketease",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
