@@ -52,7 +52,7 @@ public class TicketService {
 
             if(bookTicketRequest.getRequestedSeatNos().contains(showSeat.getSeatNo())) {
                 if(!showSeat.isAvailable())
-                    return "ShowSeat already booked by someone";
+                    return "Seats already booked.";
                 showSeat.setAvailable(false);
                 totalPrice = totalPrice + showSeat.getCost();
             }
@@ -76,10 +76,10 @@ public class TicketService {
         ticketRepository.save(ticket);
 
         SimpleMailMessage mailMessage=new SimpleMailMessage();
-        String body ="Hi "+ticket.getUser().getName()+" Your Ticket Conform for Movie "+ticket.getMovieName()+" "+"Seats NO's= "+ticket.getBookedSeats()+" Total Booked Seats : "+bookTicketRequest.getRequestedSeatNos().size();
-        mailMessage.setFrom("TicketEase@gmail.com");
+        String body ="Hi "+ticket.getUser().getName()+" Your tickets are conformed for the movie "+ticket.getMovieName()+" "+"Seat NO's= "+ticket.getBookedSeats()+" Total seats booked : "+bookTicketRequest.getRequestedSeatNos().size() + ".";
+        mailMessage.setFrom("ticketease@gmail.com");
         mailMessage.setTo(ticket.getUser().getEmailId());
-        mailMessage.setSubject("Book My Show Ticket Book Successful");
+        mailMessage.setSubject("Tickets booked successfully.");
         mailMessage.setText(body);
         mailSender.send(mailMessage);
 
@@ -105,7 +105,7 @@ public class TicketService {
     public String cancelTicket(BookTicketRequest bookTicketRequest,int ticketId)
     {
         Optional<Ticket> optionalTicket = ticketRepository.findById(ticketId);
-        if(!optionalTicket.isPresent()) return "Invalid Ticket";
+        if(!optionalTicket.isPresent()) return "Invalid ticket.";
         Show show = findRightShow(bookTicketRequest);
         List<ShowSeat> showSeatList = show.getShowSeatList();
 
@@ -129,7 +129,7 @@ public class TicketService {
 
         showRepository.save(show);
 
-        return "Ticket canceled Successful and Amount Refunded "+totalPrice;
+        return "Tickets cancelled successfully and amount refunded."+totalPrice;
     }
 
 }

@@ -30,7 +30,7 @@ public class TheaterService {
         //Create the theater Seats Entity
         createTheaterSeats(theater,addTheaterRequest);
 
-        return "Theater and its seats have been saved to DB";
+        return "Theater and seat details has been saved to DB.";
     }
 
     public void createTheaterSeats(Theater theater,AddTheaterRequest addTheaterRequest){
@@ -62,7 +62,7 @@ public class TheaterService {
         }
 
 
-        //Similar numbering I will do for the Premium Seats :
+        //Similar numbering will do for the Premium Seats :
         ch = 'A';
         for(int i=1;i<=noOfPremiumSeats;i++){
 

@@ -19,7 +19,7 @@ public class MovieService {
 
         movieRepository.save(movie);
 
-        return "Movie has been added to the DB successfully";
+        return "Movie has been added to the DB successfully.";
 
     }
 

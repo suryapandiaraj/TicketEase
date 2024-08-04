@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -44,8 +43,8 @@ public class Show {
     private Movie movie;
 
     @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
-    private List<ShowSeat> showSeatList = new ArrayList<>();
+    private List<ShowSeat> showSeatList;
 
     @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
-    private List<Ticket> ticketList = new ArrayList<>();
+    private List<Ticket> ticketList;
 }

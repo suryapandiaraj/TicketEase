@@ -17,7 +17,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,9 +40,9 @@ public class Theater {
     private City city;
 
     @OneToMany(mappedBy = "theater",cascade = CascadeType.ALL)
-    private List<TheaterSeat> theaterSeatList = new ArrayList<>();
+    private List<TheaterSeat> theaterSeatList;
 
 
     @OneToMany(mappedBy = "theater",cascade = CascadeType.ALL)
-    private List<Show> showList = new ArrayList<>();
+    private List<Show> showList;
 }

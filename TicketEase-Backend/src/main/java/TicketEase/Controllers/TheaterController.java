@@ -17,16 +17,16 @@ public class TheaterController {
     private TheaterService theaterService;
 
     @PostMapping("/addTheater")
-    public ResponseEntity addTheater(@RequestBody AddTheaterRequest addTheaterRequest){
+    public ResponseEntity<?> addTheater(@RequestBody AddTheaterRequest addTheaterRequest){
         String result = theaterService.addTheater(addTheaterRequest);
-        return new ResponseEntity(result, HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @GetMapping("/showTheaterByLocation")
-    public ResponseEntity showTheaterByLocation(@RequestParam("location") City location)
+    public ResponseEntity<?> showTheaterByLocation(@RequestParam("location") City location)
     {
         List<String> result = theaterService.showTheaterByLocation(location);
         return new ResponseEntity<>(result,HttpStatus.FOUND);
     }
 
-}
+} 

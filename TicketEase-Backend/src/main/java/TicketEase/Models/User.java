@@ -14,7 +14,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,5 +40,5 @@ public class User {
 
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<Ticket> ticketList = new ArrayList<>();
+    private List<Ticket> ticketList;
 }

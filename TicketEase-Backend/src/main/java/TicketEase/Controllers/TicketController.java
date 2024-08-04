@@ -21,8 +21,8 @@ public class TicketController {
     }
 
     @DeleteMapping("/cancelTicket")
-    private String cancelTicket(@RequestBody BookTicketRequest bookTicketRequest, @RequestParam int ticketId)
-    {
+    private String cancelTicket(@RequestBody BookTicketRequest bookTicketRequest, @RequestParam int ticketId) {
+        
         return ticketService.cancelTicket(bookTicketRequest,ticketId);
 
     }

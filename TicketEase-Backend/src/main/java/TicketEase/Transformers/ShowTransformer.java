@@ -3,7 +3,7 @@ package TicketEase.Transformers;
 import TicketEase.Models.Show;
 import TicketEase.RequestDtos.AddShowRequest;
 
-public class ShowTransformers {
+public class ShowTransformer {
 
     public static Show convertAddRequestToEntity(AddShowRequest addShowRequest){
 

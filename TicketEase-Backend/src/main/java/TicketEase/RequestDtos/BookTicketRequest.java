@@ -23,5 +23,4 @@ public class BookTicketRequest {
 
     private Integer userId;
 
-    //Do you want to take food coupons : you will add it yourself
 }

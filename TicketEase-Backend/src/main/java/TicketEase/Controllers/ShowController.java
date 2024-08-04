@@ -41,8 +41,8 @@ public class ShowController {
     }
 
     @GetMapping("/getShowByDate")
-    public ResponseEntity getShowByDate(@RequestParam("date")LocalDate date, @RequestParam("movieName")String movieName, @RequestParam("city")City city)
-    {
+    public ResponseEntity<?> getShowByDate(@RequestParam("date")LocalDate date, @RequestParam("movieName")String movieName, @RequestParam("city")City city){
+
         List<GetShowByDateDTO> result = showService.getShowByDate(date,movieName,city);
         if(result.size()==0)
             return new ResponseEntity<>("Show not found", HttpStatus.FOUND);
@@ -50,17 +50,15 @@ public class ShowController {
     }
 
     @GetMapping("/getBookedSeat")
-    public List<String> getBookedSeat(@RequestParam("showId") int showId, @RequestParam("theaterId") int theaterId)
-    {
-        return showService.getBookedSeat(showId,theaterId);
+    public List<String> getBookedSeat(@RequestParam("showId") int showId){
+
+        return showService.getBookedSeat(showId);
     }
 
     @GetMapping("/getUnbookedSeat")
-    public List<String> getUnbookedSeat(@RequestParam("showId") int showId, @RequestParam("theaterId") int theaterId)
-    {
+    public List<String> getUnbookedSeat(@RequestParam("showId") int showId, @RequestParam("theaterId") int theaterId){
+
         return showService.getUnbookedSeat(showId,theaterId);
     }
-
-
 
 }

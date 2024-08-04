@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -37,6 +36,6 @@ public class Movie {
     private LocalDate releaseDate;
 
     @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL)
-    private List<Show> showList = new ArrayList<>();
+    private List<Show> showList;
 
 }

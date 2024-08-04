@@ -3,11 +3,9 @@ package TicketEase.Transformers;
 import TicketEase.Models.User;
 import TicketEase.RequestDtos.AddUserRequest;
 
-public class UserTransformers {
-
+public class UserTransformer {
 
     public static User convertAddUserReqToUserEntity(AddUserRequest addUserRequest){
-
 
         User userObj = User.builder()
                 .age(addUserRequest.getAge())
@@ -16,10 +14,8 @@ public class UserTransformers {
                 .name(addUserRequest.getName())
                 .build();
 
-
         return userObj;
 
     }
-
 
 }

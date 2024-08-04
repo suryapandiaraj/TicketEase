@@ -14,7 +14,7 @@ import TicketEase.Repository.TheaterRepository;
 import TicketEase.RequestDtos.AddShowRequest;
 import TicketEase.RequestDtos.AddShowSeatsRequest;
 import TicketEase.RequestDtos.GetShowByDateDTO;
-import TicketEase.Transformers.ShowTransformers;
+import TicketEase.Transformers.ShowTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +39,7 @@ public class ShowService {
 
         //Goal is to set the attributes of the Show Entity and save it to db.
 
-        Show show = ShowTransformers.convertAddRequestToEntity(addShowRequest);
+        Show show = ShowTransformer.convertAddRequestToEntity(addShowRequest);
         Show findShow =showRepository.findShowByDateAndTime(show.getShowDate(),show.getShowTime(),addShowRequest.getTheaterId());
         if(findShow!=null){
             throw new ShowAlreadyExistException("THE SHOW ALREADY AVAILABLE FOR THE DATE "+show.getShowDate()+" TIME "+show.getShowTime() );
@@ -127,9 +127,8 @@ public class ShowService {
         return result;
     }
 
-    public List<String> getBookedSeat(int showId, int theaterId)
+    public List<String> getBookedSeat(int showId)
     {
-        // Theater theater = theaterRepository.findById(theaterId).get();
         Show show = showRepository.findById(showId).get();
 
         List<String> result = new ArrayList<>();
