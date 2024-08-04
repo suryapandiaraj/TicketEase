@@ -10,7 +10,6 @@ import TicketEase.Models.Theater;
 import TicketEase.Models.TheaterSeat;
 import TicketEase.Repository.MovieRepository;
 import TicketEase.Repository.ShowRepository;
-import TicketEase.Repository.ShowSeatRespository;
 import TicketEase.Repository.TheaterRepository;
 import TicketEase.RequestDtos.AddShowRequest;
 import TicketEase.RequestDtos.AddShowSeatsRequest;
@@ -36,16 +35,13 @@ public class ShowService {
     @Autowired
     private ShowRepository showRepository;
 
-    @Autowired
-    private ShowSeatRespository showSeatRespository;
-
     public String addShow(AddShowRequest addShowRequest) throws ShowAlreadyExistException{
 
         //Goal is to set the attributes of the Show Entity and save it to db.
 
         Show show = ShowTransformers.convertAddRequestToEntity(addShowRequest);
-        Show findshow =showRepository.findShowByDateAndTime(show.getShowDate(),show.getShowTime(),addShowRequest.getTheaterId());
-        if(findshow!=null){
+        Show findShow =showRepository.findShowByDateAndTime(show.getShowDate(),show.getShowTime(),addShowRequest.getTheaterId());
+        if(findShow!=null){
             throw new ShowAlreadyExistException("THE SHOW ALREADY AVAILABLE FOR THE DATE "+show.getShowDate()+" TIME "+show.getShowTime() );
         }
         Movie movie = movieRepository.findMovieByMovieName(addShowRequest.getMovieName());
@@ -102,7 +98,7 @@ public class ShowService {
 
         //Either save parent or save child
 
-        //child is alot of seats (you need to save that list)
+        //child is a lot of seats (you need to save that list)
 
         showRepository.save(show);
         return "The show seats have been added";
@@ -133,7 +129,7 @@ public class ShowService {
 
     public List<String> getBookedSeat(int showId, int theaterId)
     {
-        Theater theater = theaterRepository.findById(theaterId).get();
+        // Theater theater = theaterRepository.findById(theaterId).get();
         Show show = showRepository.findById(showId).get();
 
         List<String> result = new ArrayList<>();
@@ -152,7 +148,7 @@ public class ShowService {
 
     public List<String> getUnbookedSeat(int showId, int theaterId)
     {
-        Theater theater = theaterRepository.findById(theaterId).get();
+        // Theater theater = theaterRepository.findById(theaterId).get();
         Show show = showRepository.findById(showId).get();
 
         List<String> result = new ArrayList<>();

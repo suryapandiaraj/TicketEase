@@ -102,7 +102,7 @@ public class TicketService {
         return show;
     }
 
-    public String cancleTicket(BookTicketRequest bookTicketRequest,int ticketId)
+    public String cancelTicket(BookTicketRequest bookTicketRequest,int ticketId)
     {
         Optional<Ticket> optionalTicket = ticketRepository.findById(ticketId);
         if(!optionalTicket.isPresent()) return "Invalid Ticket";

@@ -1,7 +1,6 @@
 package TicketEase.Controllers;
 
 import TicketEase.Enums.City;
-import TicketEase.Models.Show;
 import TicketEase.RequestDtos.AddShowRequest;
 import TicketEase.RequestDtos.AddShowSeatsRequest;
 import TicketEase.RequestDtos.GetShowByDateDTO;

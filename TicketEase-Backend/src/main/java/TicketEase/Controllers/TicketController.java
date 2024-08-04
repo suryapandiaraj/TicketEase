@@ -5,7 +5,6 @@ import TicketEase.Service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("ticket")
@@ -22,9 +21,9 @@ public class TicketController {
     }
 
     @DeleteMapping("/cancelTicket")
-    private String cancleTicket(@RequestBody BookTicketRequest bookTicketRequest, @RequestParam int ticketId)
+    private String cancelTicket(@RequestBody BookTicketRequest bookTicketRequest, @RequestParam int ticketId)
     {
-        return ticketService.cancleTicket(bookTicketRequest,ticketId);
+        return ticketService.cancelTicket(bookTicketRequest,ticketId);
 
     }
 
