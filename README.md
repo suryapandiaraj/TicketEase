@@ -1,5 +1,5 @@
 
-It is a clone of BookMyShow that is developed using **HTML, CSS and JavaScript** for the Frontend and **Java Springboot** for the Backend. It is a webiste to book **Movie & Show tickets online**.
+TicketEase is a clone of BookMyShow that is developed using **HTML, CSS and JavaScript** for the Frontend and **Java Springboot** for the Backend. It is a webiste to book **Movie & Show tickets online**.
 
 
 Screen Captures : 
